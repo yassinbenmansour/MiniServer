@@ -36,7 +36,7 @@ int	main(void)
 		exit(EXIT_FAILURE);
 	}
 	printf("Socket lié à l’adresse 0.0.0.0:%d\n", PORT);
-	// 3️⃣ Listen
+	//Étape 3 Listen
 	if (listen(server_fd, 3) < 0)
 	{
 		perror("listen failed");
@@ -44,7 +44,7 @@ int	main(void)
 		exit(EXIT_FAILURE);
 	}
 	printf("Server listening on port %d\n", PORT);
-	// 4️⃣ Accept (bloquant)
+	// Étape 4 Accept (bloquant)
 	new_socket = accept(server_fd, (struct sockaddr *)&address, &addrlen);
 	if (new_socket < 0)
 	{
@@ -54,7 +54,7 @@ int	main(void)
 	}
 	printf("Connection accepted!\n");
 
-	// 5️⃣ Lire ce que le client envoie
+	// Étape 5 Lire ce que le client envoie
 	valread = read(new_socket, buffer, sizeof(buffer));
 	if (valread < 0)
 	{
@@ -64,7 +64,7 @@ int	main(void)
 	{
 		printf("Message from client:\n%s\n", buffer);
 	}
-    
+
 	hello = "HTTP/1.1 200 OK\r\nContent-Length: 13\r\n\r\nHello from the server\n";
 	write(new_socket, hello, strlen(hello));
 
