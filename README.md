@@ -41,7 +41,3 @@ Refer to the comments in `main.c` for detailed explanations of each step.
 Below is an example image showing the server in action:
 
 ![Server Example](example.png)
-
-## License
-
-This project is licensed under the MIT License.
